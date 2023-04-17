@@ -10,5 +10,4 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     List<Game> findByPublished(boolean published);
     List<Game> findByTitleContaining(String title);
 
-    List<Game> getAll();
 }

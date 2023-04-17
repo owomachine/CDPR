@@ -17,13 +17,10 @@ public class GameController {
     @Autowired
     GameRepository gameRepository;
 
-    @GetMapping("api/games")
+    @GetMapping("api/allgames")
     public ResponseEntity<List<Game>> getAll() {
-
-        return new ResponseEntity<>(gameRepository.getAll(), HttpStatus.OK);
+        List<Game> games = gameRepository.findAll();
+        return new ResponseEntity<>(games, HttpStatus.OK);
     }
-    //public ResponseEntity<List<Game>> getAll() {
-     //   return new ResponseEntity<List<Game>>(gameRepository.getAll(), HttpStatus.OK);
-    //}
 
 }
