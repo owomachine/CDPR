@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    public long id;
 
     @Column(name = "title")
-    private String title;
+    public String title;
 
     @Column(name = "description")
-    private String description;
+    public String description;
 
     public Game() {
 

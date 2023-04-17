@@ -20,6 +20,7 @@ public class GameController {
     @GetMapping("api/allgames")
     public ResponseEntity<List<Game>> getAll() {
         List<Game> games = gameRepository.findAll();
+        System.out.println(games);
         return new ResponseEntity<>(games, HttpStatus.OK);
     }
 
