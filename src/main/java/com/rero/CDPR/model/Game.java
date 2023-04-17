@@ -15,9 +15,6 @@ public class Game {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "published")
-    private boolean published;
-
     public Game() {
 
     }
