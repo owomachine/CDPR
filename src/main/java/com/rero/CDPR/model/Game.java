@@ -12,6 +12,9 @@ public class Game {
     @Column(name = "title")
     public String title;
 
+    @Column(name = "price")
+    public int price;
+
     @Column(name = "description")
     public String description;
 
