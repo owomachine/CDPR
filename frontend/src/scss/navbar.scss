@@ -1,0 +1,19 @@
+.navbar {
+    background:rgb(0, 0, 0);
+
+    .navbar-brand{
+        padding-left: 20px;
+    }
+
+    a{
+        color: red;
+
+        &:hover{
+            color: white;
+        }
+    }
+
+    .navbar-toggler{ //needs responsive
+        color: red;
+    }
+}

@@ -15,6 +15,12 @@ public class Game {
     @Column(name = "description")
     public String description;
 
+    @Column(name = "rating")
+    public int rating;
+
+    @Column(name = "coverurl")
+    public String coverurl;
+
     public Game() {
 
     }
