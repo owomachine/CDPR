@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Navbar from "../elements/navbar";
+import SearchBar from "../elements/search-bar";
 import GameList from "../elements/game-list";
 
 class HomePage extends Component {
@@ -20,6 +21,7 @@ class HomePage extends Component {
     return (
       <div>
         <Navbar />
+        <SearchBar />
         <h1>AAAAAAAA</h1>
         <GameList />
       </div>

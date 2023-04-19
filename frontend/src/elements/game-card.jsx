@@ -1,18 +1,21 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import "../scss/game-card.scss";
 
-// import {Row} from "react-bootstrap";
-// import {Col} from "react-bootstrap";
-
 function GameCard({ game }) {
+  const history = useHistory();
+
+  const handleDivClick = () => {
+    history.push(`/games/${game.id}`);
+  };
+
   return (
-    <div className="gameCard">
+    <div className="gameCard" onClick={handleDivClick}>
       <img className="gameCover" src={game.coverurl} />
       <div className="shortInfo">
         <span>{game.title}</span><span>{game.price}€</span>
       </div>
-      
     </div>
   );
 }
