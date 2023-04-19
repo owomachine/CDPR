@@ -21,6 +21,7 @@ class GameList extends Component {
   }
   render() {
     const { games } = this.state;
+    console.log(games);
     return (
       <div className="gameList">
               <Row>

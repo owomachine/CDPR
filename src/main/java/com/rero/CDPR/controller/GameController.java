@@ -24,7 +24,7 @@ public class GameController {
 
     @GetMapping("api/games/{id}")
     public Optional<Game> getGameById(@PathVariable Long id) {
-        Optional<Game> game = gameRepository.findById(id); 
+        Optional<Game> game = gameRepository.findById(id);
         return game;
     }
 
@@ -34,13 +34,23 @@ public class GameController {
         return games;
     }
 
-//    @PostMapping("/api/games")
-//    public ResponseEntity<Game> createGame(@RequestBody Game game) {
-//        try {
-//            Game newGame = gameRepository.save(new Game(game.title, game.price, game.description, game.rating, game.coverurl));
-//            return new ResponseEntity<>(newGame, HttpStatus.CREATED);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
+    @PostMapping("/api/games")
+    public ResponseEntity<Game> createGame(@RequestBody Game game) {
+        try {
+            Game newGame = gameRepository.save(new Game(game.title, game.price, game.description, game.rating, game.coverurl));
+            return new ResponseEntity<>(newGame, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/api/games/{id}")
+    public ResponseEntity<HttpStatus> deleteGame(@PathVariable Long id) {
+        try {
+            gameRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

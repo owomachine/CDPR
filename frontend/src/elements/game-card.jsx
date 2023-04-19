@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import "../scss/game-card.scss";
 
 function GameCard({ game }) {
+  console.log(game);
   const history = useHistory();
 
   const handleDivClick = () => {
