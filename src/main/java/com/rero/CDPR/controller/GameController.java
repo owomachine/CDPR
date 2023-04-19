@@ -37,7 +37,13 @@ public class GameController {
     @PostMapping("/api/games")
     public ResponseEntity<Game> createGame(@RequestBody Game game) {
         try {
-            Game newGame = gameRepository.save(new Game(game.title, game.price, game.description, game.rating, game.coverurl));
+            Game newGame = new Game();
+            newGame.setTitle(game.getTitle());
+            newGame.setPrice(game.getPrice());
+            newGame.setDescription(game.getDescription());
+            newGame.setRating(game.getRating());
+            newGame.setCoverurl(game.getCoverurl());
+            newGame = gameRepository.save(newGame);
             return new ResponseEntity<>(newGame, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -51,6 +57,23 @@ public class GameController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/api/games/{id}")
+    public ResponseEntity<Game> putGame(@PathVariable Long id, @RequestBody Game game) {
+        Optional<Game> optionalGame = gameRepository.findById(id);
+        if (optionalGame.isPresent()) {
+            Game existingGame = optionalGame.get();
+            existingGame.setTitle(game.getTitle());
+            existingGame.setPrice(game.getPrice());
+            existingGame.setDescription(game.getDescription());
+            existingGame.setRating(game.getRating());
+            existingGame.setCoverurl(game.getCoverurl());
+            Game updatedGame = gameRepository.save(existingGame);
+            return new ResponseEntity<>(updatedGame, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }

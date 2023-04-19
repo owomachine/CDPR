@@ -15,19 +15,19 @@ public class Game {
     private Long id;
 
     @Column(name = "title")
-    public String title;
+    private String title;
 
     @Column(name = "price")
-    public int price;
+    private int price;
 
     @Column(name = "description")
-    public String description;
+    private String description;
 
     @Column(name = "rating")
-    public int rating;
+    private int rating;
 
     @Column(name = "coverurl")
-    public String coverurl;
+    private String coverurl;
 
     public Game(String title, int price, String description, int rating, String coverurl) {
         this.title = title;
@@ -39,5 +39,53 @@ public class Game {
 
     public Game() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getCoverurl() {
+        return coverurl;
+    }
+
+    public void setCoverurl(String coverurl) {
+        this.coverurl = coverurl;
     }
 }
