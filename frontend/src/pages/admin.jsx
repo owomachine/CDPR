@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import Navbar from "../elements/navbar";
 import "../scss/admin-page.scss";
@@ -10,7 +10,7 @@ function AdminPage() {
   useEffect(() => {
     async function fetchGames() {
       try {
-        const response = await axios.get('/api/games');
+        const response = await axios.get("/api/games");
         setGames(response.data);
       } catch (error) {
         console.error(error);
@@ -19,6 +19,18 @@ function AdminPage() {
 
     fetchGames();
   }, []);
+
+  async function handleDelete(id) {
+    console.log(id)
+    try {
+      const response = await axios.delete(`/api/games/${id}`);
+      if (response.status === 204) {
+        setGames(games.filter((game) => game.id !== id));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div>
@@ -40,6 +52,9 @@ function AdminPage() {
               <td>{game.title}</td>
               <td>{game.price}€</td>
               <td>{game.rating}</td>
+              <td>
+                <button onClick={() => handleDelete(game.id)}>DELETE</button>
+              </td>
             </tr>
           ))}
         </tbody>
