@@ -13,8 +13,8 @@ class GameList extends Component {
   };
 
   async componentDidMount() {
-    console.log(fetch("api/allgames"));
-    const response = await fetch("api/allgames");
+    console.log(fetch("api/games"));
+    const response = await fetch("api/games");
     const body = await response.json();
     console.log(body);
     this.setState({ games: body });
