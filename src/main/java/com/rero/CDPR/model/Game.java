@@ -18,7 +18,7 @@ public class Game {
     private String title;
 
     @Column(name = "price")
-    private int price;
+    private double price;
 
     @Column(name = "description")
     private String description;
@@ -57,11 +57,11 @@ public class Game {
         this.title = title;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

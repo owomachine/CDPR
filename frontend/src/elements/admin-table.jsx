@@ -60,6 +60,8 @@ function AdminTable() {
             <th>Title</th>
             <th>Price</th>
             <th>Rating</th>
+            <th>Description</th>
+            <th>Cover Image</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -107,6 +109,36 @@ function AdminTable() {
                     />
                   </td>
                   <td>
+                    <input
+                      type="text"
+                      defaultValue={game.description}
+                      onChange={(e) =>
+                        setEditingGame({
+                          ...editingGame,
+                          description: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
+                    <img
+                      src={game.coverurl}
+                      width={50}
+                      height={50}
+                      alt={game.title}
+                    />
+                    <input
+                      type="text"
+                      defaultValue={game.coverurl}
+                      onChange={(e) =>
+                        setEditingGame({
+                          ...editingGame,
+                          coverurl: e.target.value,
+                        })
+                      }
+                    />
+                  </td>
+                  <td>
                     <button
                       onClick={() => handleUpdate(editingGame)}
                       disabled={!editingGame.title || !editingGame.price}
@@ -123,11 +155,29 @@ function AdminTable() {
                   <td>{game.title}</td>
                   <td>{game.price}€</td>
                   <td>{game.rating}</td>
+                  <td>{game.description}</td>
+                  <td>
+                    <img
+                      src={game.coverurl}
+                      width={50}
+                      height={50}
+                      alt={game.title}
+                    />
+                    <a
+                      href={game.coverurl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {game.coverurl}
+                    </a>
+                  </td>
                   <td>
                     <button onClick={() => setEditingGame(game)}>EDIT</button>
                   </td>
                   <td>
-                    <button onClick={() => handleDelete(game.id)}>DELETE</button>
+                    <button onClick={() => handleDelete(game.id)}>
+                      DELETE
+                    </button>
                   </td>
                 </>
               )}
