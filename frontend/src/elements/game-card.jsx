@@ -13,9 +13,12 @@ function GameCard({ game }) {
 
   return (
     <div className="gameCard" onClick={handleDivClick}>
-      <img className="gameCover" src={game.coverurl}/>
+      <div className="gameCard-ImgContainer">
+        <img className="gameCover" src={game.coverurl} />
+      </div>
       <div className="shortInfo">
-        <p>{game.title}</p><span>{game.price}€</span>
+        <p>{game.title}</p>
+        <span>{game.price}€</span>
       </div>
     </div>
   );

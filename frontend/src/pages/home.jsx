@@ -1,34 +1,31 @@
-import React, { Component } from "react";
+import React, {useState, useEffect} from "react";
 
 import Navbar from "../elements/navbar";
 import SearchBar from "../elements/search-bar";
 import GameList from "../elements/game-list";
 
-import "../scss/home.scss"
+import "../scss/home.scss";
 
-class HomePage extends Component {
-  state = {
-    games: [],
-  };
+function HomePage() {
+  const [games, setGames] = useState([]);
 
-  async componentDidMount() {
-    console.log(fetch("api/allgames"));
-    const response = await fetch("api/allgames");
-    const body = await response.json();
-    console.log(body);
-    this.setState({ games: body });
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("api/games");
+      const body = await response.json();
+      setGames(body);
+    }
+    fetchData();
+  }, []);
 
-  render() {
-    return (
-      <div className="home">
-        <Navbar />
-        <SearchBar />
-        <h1>AAAAAAAA</h1>
-        <GameList />
-      </div>
-    );
-  }
+  return (
+    <div className="home">
+      <Navbar />
+      <SearchBar />
+      <h1>AAAAAAAA</h1>
+      <GameList games={games} />
+    </div>
+  );
 }
 
 export default HomePage;

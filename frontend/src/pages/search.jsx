@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-
 import Navbar from "../elements/navbar";
-import GameCard from "../elements/game-card";
+import GameList from "../elements/game-list";
 
 function SearchPage() {
   const [searchValue, setSearchValue] = useState("");
@@ -25,12 +22,6 @@ function SearchPage() {
     }
   };
 
-  const gameCards = games.map((game) => (
-    <Col xs={4}>
-      <GameCard key={game.id} game={game} />
-    </Col>
-  ));
-
   return (
     <div>
       <Navbar />
@@ -38,7 +29,7 @@ function SearchPage() {
         <input type="text" value={searchValue} onChange={handleSearchChange} />
         <button type="submit">Search</button>
       </form>
-      <Row>{gameCards}</Row>
+      <GameList games={games}/>
     </div>
   );
 }

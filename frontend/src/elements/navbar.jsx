@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+
 import "../scss/navbar.scss";
 
 class Navbar extends Component {
     state = {  } 
     render() { 
-        return (<nav class="navbar navbar-expand-lg">
+        return (
+        <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="/">RED Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -17,7 +19,8 @@ class Navbar extends Component {
             <a class="nav-item nav-link" href="/search">Search</a>
           </div>
         </div>
-      </nav>);
+      </nav>
+      );
     }
 }
  
