@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function SearchBar() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -13,6 +14,7 @@ function SearchBar() {
       try {
         const response = await axios.get(`/api/games/title/${searchValue}`);
         setSearchResults(response.data);
+        setSearchButtonClicked(true);
       } catch (error) {
         console.error(error);
       }
@@ -31,16 +33,18 @@ function SearchBar() {
         <button type="submit">Search</button>
       </form>
 
-      {searchResults.length > 0 ? (
-        <ul>
-          {searchResults.map((game) => (
-            <li key={game.id}>
-              <Link to={`/games/${game.id}`}>{game.title}</Link>
-            </li>
-          ))}
-        </ul>
-      ) : (
+      {searchButtonClicked && searchResults.length === 0 ? (
         <p>No results found.</p>
+      ) : (
+        searchResults.length > 0 && (
+          <ul>
+            {searchResults.map((game) => (
+              <li key={game.id}>
+                <Link to={`/games/${game.id}`}>{game.title}</Link>
+              </li>
+            ))}
+          </ul>
+        )
       )}
     </div>
   );

@@ -26,7 +26,7 @@ class GameList extends Component {
       <div className="gameList">
               <Row>
                 {games.map((game) => (
-                  <Col xs={4}>
+                  <Col lg={4} md={6} xs={12}>
                     <GameCard game={game} />
                   </Col>
                 ))}

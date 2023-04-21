@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import HomePage from "./pages/home";
 import AdminPage from "./pages/admin";
 import GamePage from "./pages/game";
+import SearchPage from "./pages/search";
 
 export default function Router() {
   return (
@@ -13,6 +14,7 @@ export default function Router() {
         <Route path="/" exact component={HomePage} />
         <Route path="/admin" exact component={AdminPage} />
         <Route path="/games/:gameId" exact component={GamePage} />
+        <Route path="/search" exact component={SearchPage} />
       </Switch>
     </BrowserRouter>
   );

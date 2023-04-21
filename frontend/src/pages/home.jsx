@@ -4,6 +4,8 @@ import Navbar from "../elements/navbar";
 import SearchBar from "../elements/search-bar";
 import GameList from "../elements/game-list";
 
+import "../scss/home.scss"
+
 class HomePage extends Component {
   state = {
     games: [],
@@ -19,7 +21,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="home">
         <Navbar />
         <SearchBar />
         <h1>AAAAAAAA</h1>
