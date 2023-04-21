@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import Navbar from "../elements/navbar";
 import SearchBar from "../elements/search-bar";
@@ -21,8 +21,13 @@ function HomePage() {
   return (
     <div className="home">
       <Navbar />
-      <SearchBar />
-      <h1>AAAAAAAA</h1>
+      <div className="welcomeText">
+      <h1>Welcome to the RED Store!</h1>
+      <h3>
+        We heard you have been looking for some good games, guess what? WE HAVE
+        EVERYTHING YOU NEED! (maybe even more!!)
+      </h3>
+      <h3>Here's our top picks for this month, we have a game for you no matter what you enjoy!</h3></div>
       <GameList games={games} />
     </div>
   );

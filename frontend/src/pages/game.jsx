@@ -19,16 +19,16 @@ function GamePage() {
   }, [gameId]);
 
   return (
-    <div>
+    <div className="gamePage">
       <Navbar />
       <div className="gameWrapper">
         <Row>
-          <Col xs={6}>
+          <Col sm={6} xs={12}>
             <img src={game.coverurl} />
           </Col>
-          <Col xs={6}>
+          <Col sm={6} xs={12}>
             <h1>{game.title}</h1>
-            <h3>{game.description}</h3>
+            <p>{game.description}</p>
             <h3>%{game.rating} Positive</h3>
             <h2>{game.price}€</h2>
           </Col>

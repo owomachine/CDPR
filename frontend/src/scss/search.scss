@@ -1,0 +1,33 @@
+.searchPage{
+    background-color: #d9d9d9;
+}
+
+form {
+  font-family: sans-serif;
+
+  input {
+    margin: 3rem 0 2rem 0;
+    width: 60%;
+    max-width: 800px;
+    border-radius: 50px;
+    padding-left: 15px;
+    color: red;
+    border: 1px solid red;
+    background-color: transparent;
+  }
+
+  button {
+    width: 100px;
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 50px;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: red;
+      background-color: white;
+      border: 1px solid red;
+    }
+  }
+}

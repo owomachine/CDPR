@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
 
-
 import "../scss/navbar.scss";
 
 class Navbar extends Component {
-    state = {  } 
-    render() { 
-        return (
-        <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/">RED Store</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+  state = {
+    showMenu: false
+  }
+
+  toggleMenu = () => {
+    this.setState({ showMenu: !this.state.showMenu });
+  }
+
+  render() {
+    const { showMenu } = this.state;
+
+    return (
+      <nav className="navbar navbar-expand-lg">
+        <a className="navbar-brand" href="/">RED Store</a>
+        <button className="navbar-toggler" type="button" onClick={this.toggleMenu}>
+          <span className="navbar-toggler-icon">...</span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="/admin">Admin</a>
-            <a class="nav-item nav-link" href="/search">Search</a>
+        <div className={`collapse navbar-collapse ${showMenu ? 'show' : ''}`} id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <a className="nav-item nav-link" href="/">Home</a>
+            <a className="nav-item nav-link" href="/admin">Admin</a>
+            <a className="nav-item nav-link" href="/search">Search</a>
           </div>
         </div>
       </nav>
-      );
-    }
+    );
+  }
 }
- 
+
 export default Navbar;

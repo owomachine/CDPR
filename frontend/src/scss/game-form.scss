@@ -1,3 +1,15 @@
+.gameForm {
+  justify-content: center;
+
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -22,4 +34,21 @@ form {
 .form-group textarea {
   flex: 1;
   margin-left: 10px;
+}
+
+.btn {
+  color: white;
+  background-color: red;
+  border: 1px solid red;
+  border-radius: 50px;
+
+  &:hover {
+    color: red;
+    background-color: white;
+    border: 1px solid red;
+  }
+
+  &:current {
+    background-color: black;
+  }
 }

@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Navbar from "../elements/navbar";
 import GameList from "../elements/game-list";
 
+import "../scss/search.scss";
+
 function SearchPage() {
   const [searchValue, setSearchValue] = useState("");
   const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("api/games");
+      const body = await response.json();
+      setGames(body);
+    }
+    fetchData();
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
@@ -23,14 +34,19 @@ function SearchPage() {
   };
 
   return (
-    <div>
+    <div className="searchPage">
       <Navbar />
-      <form onSubmit={handleSearchSubmit}>
-        <input type="text" value={searchValue} onChange={handleSearchChange} />
-        <button type="submit">Search</button>
-      </form>
-      <GameList games={games}/>
-    </div>
+      
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            value={searchValue}
+            onChange={handleSearchChange}
+          />
+          <button type="submit">Search</button>
+        </form>
+        <GameList games={games} />
+      </div>
   );
 }
 
